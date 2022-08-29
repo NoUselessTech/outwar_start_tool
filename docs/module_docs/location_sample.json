@@ -1,0 +1,117 @@
+{
+    "error": "",
+    "pic": "dominics.jpg",
+    "actionid": "0",
+    "description": "",
+    "name": "Dominic's Resturant",
+    "mapData": {
+        "2_2": {
+            "qm": 0,
+            "image": 0
+        },
+        "3_2": {
+            "qm": 0,
+            "image": 1
+        },
+        "4_2": {
+            "qm": 0,
+            "image": 2
+        },
+        "5_2": {
+            "qm": 0,
+            "image": 3
+        },
+        "2_3": {
+            "qm": 0,
+            "image": 4
+        },
+        "3_3": {
+            "qm": 4,
+            "image": 5
+        }
+    },
+    "north": "266",
+    "south": "0",
+    "east": "0",
+    "west": "268",
+    "curRoom": "267",
+    "roomDetailsNew": [
+        {
+            "name": "Waiter Assassin",
+            "level": "12",
+            "rage": "7",
+            "h": "6baa9a06e436445500d1a3e80a06db71",
+            "encid": "S480P424K488X496R424",
+            "mobId": "159",
+            "spawnId": "70890",
+            "image": "mobs\/WaiterAssasinUse.jpg",
+            "type": 2
+        },
+        {
+            "name": "Waiter Assassin",
+            "level": "12",
+            "rage": "7",
+            "h": "6baa9a06e436445500d1a3e80a06db71",
+            "encid": "B480Z424X488Z496B432",
+            "mobId": "159",
+            "spawnId": "70891",
+            "image": "mobs\/WaiterAssasinUse.jpg",
+            "type": 2
+        },
+        {
+            "name": "Waiter Assassin",
+            "level": "12",
+            "rage": "7",
+            "h": "6baa9a06e436445500d1a3e80a06db71",
+            "encid": "A480G424I488R496B440",
+            "mobId": "159",
+            "spawnId": "70892",
+            "image": "mobs\/WaiterAssasinUse.jpg",
+            "type": 2
+        },
+        {
+            "name": "Waiter Assassin",
+            "level": "12",
+            "rage": "7",
+            "h": "6baa9a06e436445500d1a3e80a06db71",
+            "encid": "E480I424Z488Z496Q448",
+            "mobId": "159",
+            "spawnId": "70893",
+            "image": "mobs\/WaiterAssasinUse.jpg",
+            "type": 2
+        },
+        {
+            "name": "Waiter Assassin",
+            "level": "12",
+            "rage": "7",
+            "h": "6baa9a06e436445500d1a3e80a06db71",
+            "encid": "E480R424T488C496D456",
+            "mobId": "159",
+            "spawnId": "70894",
+            "image": "mobs\/WaiterAssasinUse.jpg",
+            "type": 2
+        },
+        {
+            "name": "Capofagmilia",
+            "level": "50",
+            "rage": "30",
+            "h": "d18f3d7daf4f655e1bd9715661fc2494",
+            "encid": "U440Z424I424A472D496A456",
+            "mobId": "1505",
+            "spawnId": "200694",
+            "image": "\/nimoke\/Capofagmilia.jpg",
+            "type": 2,
+            "noAttack": true
+        }
+    ],
+    "tavernData": "",
+    "doorsData": null,
+    "mapTileTypes": [
+        "maptile\/dr\/dr_08.gif",
+        "maptile\/dr\/dr_09.gif",
+        "maptile\/dr\/dr_10.gif",
+        "maptile\/dr\/dr_11.gif",
+        "maptile\/dr\/dr_14.gif",
+        "maptile\/dr\/dr_15.gif"
+    ]
+}
