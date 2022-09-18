@@ -20,11 +20,13 @@ While this script does assume running on macOS or Linux, it should work OK on Wi
 ### macOS / linux
 
 Use the following commands: `export outwar_user=<username>`
+
 Use the following commands: `export outwar_pass=<password>`
 
 ### Windows
 
 Use the following commands: `setx outwar_user <username>`
+
 Use the following commands: `setx outwar_pass <password>`
 
 ## Running Script
