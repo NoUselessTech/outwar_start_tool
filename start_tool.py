@@ -1,44 +1,68 @@
 #!/usr/bin/python3
 import requests
+import os
 from location import current_location,auto_move
 from attack import clear_room
-from account import details
+from account import details, get_cookies
 import time
 
 # Variables
 header = {
             'accept': 'application/json, text/javascript, */*',
-            'cookie': "ow_play=1102; ow_go=2; ow_userid=852454; ow_serverid=2; lightbox=1; LogQueries12=1; cuserid2=1852077; owip=69.42.249.193; ow_adcode=world; cf_clearance=MigYgLN1vQvZHgvaoVgCpYRZa1QfYcJDPdR_gwEq7l8-1661317865-0-150; token=5cdda1208d44bf3da47a0c3a30f83252; rg_sess_id=4a8db71806330953d2f35d08cb2c509c"
         }
-level = details.get_level(header) - 1
 last_location = ''
 
-# Functions
-#
-# https://torax.outwar.com/userstats.php // Get Current level
+# Function
+def cookie_to_header_string(cookie_dict):
+    cookie_string = ""
+    for key in cookie_dict.keys():
+        cookie_string += key
+        cookie_string += "="
+        cookie_string += cookie_dict[key]
+        cookie_string += "; "
+
+    return cookie_string
+
 
 # Logic
+print(' Logging in')
+username = os.environ["outwar_user"]
+password = os.environ["outwar_pass"]
+outwar_cookies = get_cookies.get_cookies(username, password)
+outwar_cookies['ow_userid'] = "852454"
+outwar_cookies['ow_serverid'] = "2"
+
+header['cookies'] = cookie_to_header_string(outwar_cookies).strip()
+
+print(' Giving time for replication.')
+time.sleep(10)
+
+print(' Get account details')
+level = details.get_level(header, outwar_cookies) - 1
+
 print(' Getting current location')
-location_data = current_location.get_current_location(header)
+location_data = current_location.get_current_location(header, outwar_cookies)
 
 print(' Clearing room')
-room_clearing = clear_room.clear_room(location_data, level, header)
+room_clearing = clear_room.clear_room(location_data, level, header, outwar_cookies)
 
 while True:
     try:
         last_location = location_data['curRoom']
         print(' Leaving room:', last_location)
 
-        location_data = auto_move.auto_move(header, location_data, last_location)
+        
+        location_data = auto_move.auto_move(header, outwar_cookies, location_data, last_location)
         print(' Entering room:', location_data['curRoom'])
 
         print(' Clearing room')
-        clear_room.clear_room(location_data, level, header)
+        clear_room.clear_room(location_data, level, header, outwar_cookies)
 
-        level = details.get_level(header) - 1
+        level = details.get_level(header, outwar_cookies) - 1
 
         time.sleep(1)
 
-    except:
-        print(' Stop going into forbidden areas.')
+    except error:
+        print(' Something failed...', error)
+
 print (' Done.')

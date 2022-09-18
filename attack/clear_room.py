@@ -4,7 +4,7 @@ import requests
 import time
 
 # Functions
-def clear_room(room_info, max_level, header):
+def clear_room(room_info, max_level, header, outwar_cookies):
 
     root_url = "https://torax.outwar.com/somethingelse.php?lightbox=1&r=world&attackid="
     
@@ -14,7 +14,7 @@ def clear_room(room_info, max_level, header):
 
             attack_url = root_url + enemy['encid']
 
-            attack_status = requests.get(url=attack_url, headers=header)
+            attack_status = requests.get(url=attack_url, headers=header, cookies=outwar_cookies)
 
             time.sleep(2)
 
