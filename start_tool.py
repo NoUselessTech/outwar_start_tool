@@ -26,12 +26,7 @@ def cookie_to_header_string(cookie_dict):
 
 # Logic
 print(' Logging in')
-username = os.environ["outwar_user"]
-password = os.environ["outwar_pass"]
-outwar_cookies = get_cookies.get_cookies(username, password)
-outwar_cookies['ow_userid'] = "852454"
-outwar_cookies['ow_serverid'] = "2"
-
+outwar_cookies = get_cookies.get_cookies()
 header['cookies'] = cookie_to_header_string(outwar_cookies).strip()
 
 print(' Giving time for replication.')
@@ -62,7 +57,10 @@ while True:
 
         time.sleep(1)
 
-    except error:
-        print(' Something failed...', error)
+    except Exception as some_error:
+        print(' Something failed...', some_error)
+        outwar_cookies = get_cookies.get_cookies()
+        header['cookies'] = cookie_to_header_string(outwar_cookies).strip()
+
 
 print (' Done.')
